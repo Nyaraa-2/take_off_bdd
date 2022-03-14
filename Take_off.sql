@@ -61,10 +61,8 @@ CREATE TABLE customer (
   language character varying(20) NOT NULL,
   id_loggin integer NOT NULL,
   id_location integer NOT NULL,
-  id_favorite_job integer NOT NULL,
   FOREIGN KEY (id_loggin) REFERENCES loggin ON DELETE CASCADE,
   FOREIGN KEY (id_location) REFERENCES location ON DELETE CASCADE
-  FOREIGN KEY (id_favorite_job) REFERENCES favorite_job ON DELETE CASCADE
 );
 
 CREATE TABLE favorite_job (
