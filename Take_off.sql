@@ -1,7 +1,7 @@
 CREATE TABLE loggin (
 	id serial PRIMARY KEY,
 	type_account character varying(50) NOT NULL,
-	email character varying(5) NOT NULL,
+	email character varying(150) NOT NULL,
 	password character varying(50) NOT NULL
 );
 
@@ -49,8 +49,8 @@ CREATE TABLE user_freelance (
   id_job integer NOT NULL,
   id_location integer NOT NULL,
   FOREIGN KEY (id_loggin) REFERENCES loggin ON DELETE CASCADE,
-  FOREIGN KEY (id_job) REFERENCES job ON DELETE CASCADE
-  FOREIGN KEY (id_location) REFERENCES location ON DELETE CASCADE,
+  FOREIGN KEY (id_job) REFERENCES job ON DELETE CASCADE,
+  FOREIGN KEY (id_location) REFERENCES location ON DELETE CASCADE
 );
 
 CREATE TABLE customer (
@@ -87,12 +87,12 @@ CREATE TABLE experience (
 
 CREATE TABLE graduation (
 	id serial PRIMARY KEY,
-  start_date date NOT NULL,
-  end_date date NOT NULL,
   title character varying(50) NOT NULL,
 	school character varying(50) NOT NULL,
   location character varying(50) NOT NULL,
   description character varying(1500) NOT NULL,
+  start_date date NOT NULL,
+  end_date date NOT NULL,
   id_user_freelance integer NOT NULL,
   FOREIGN KEY (id_user_freelance) REFERENCES user_freelance ON DELETE CASCADE
 );

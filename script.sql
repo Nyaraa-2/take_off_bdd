@@ -2,19 +2,19 @@ INSERT INTO loggin (type_account,email,password)
 VALUES 
 ('freelance','marina.vandenbosch@gmail.com','foreach')
 ,('freelance','enzo.averlant@gmail.com','foreach')
-,('customer','adrien.bogaz@gmail.com','foreach')
+,('customer','adrien.bogaz@gmail.com','foreach');
+
 INSERT INTO job (name) 
 VALUES 
-('Developpeur full-stack')--1
-,('UX/UI Designer')--2
-,('DevOps')--3
-,('Product Manager')--4
+('Developpeur full-stack')
+,('UX/UI Designer')
+,('DevOps')
+,('Product Manager');
 
 INSERT INTO expertise (name) 
 VALUES 
--- DevfullStack + Devops
-('Langages') --1
-,('Framework') --2
+('Languages')
+,('Framework')
 ,('Databases') --3
 ,('Gestion des versions') --4
 -- UX/UI Designer + logiciel pour PO
@@ -26,14 +26,14 @@ VALUES
 -- product manager
 ,('Methodologies') --9
 ,('Project Management') --10
-,('Autres') --11
+,('Autres'); --11
 
 INSERT INTO job_expertise(id_job,id_expertise)
 VALUES
 (1,1),(1,2),(1,3),(1,4),(1,5)
 ,(2,5),(2,6),(2,11)
 ,(3,1),(3,2),(3,3),(3,4),(3,5),(3,7),(3,8),(3,1)
-,(4,1),(4,5),(4,9),(4,10),(4,11)
+,(4,1),(4,5),(4,9),(4,10),(4,11);
 
 INSERT INTO expertise_category (name,id_expertise)
 VALUES 
@@ -41,7 +41,7 @@ VALUES
 ,('Javascript',1)
 ,('C#',1)
 ,('Php',1)
-('VueJs',2)
+,('VueJs',2)
 ,('React',2)
 ,('AngularJs',2)
 ,('Laravel',2)
@@ -73,9 +73,9 @@ VALUES
 ,('Trello',10)
 ,('WebDesing',11)
 ,('Charte graphique',11)
-,('Management équipe',11)
+,('Management équipe',11);
 
-INSERT INTO location(name) VALUES('Lille'),('Paris'),('Marseille'),('Lyon')
+INSERT INTO location(name) VALUES('Lille'),('Paris'),('Marseille'),('Lyon');
 
 INSERT INTO user_freelance (firstname,lastname,picture_profil,about,siren,rate,price,language,id_loggin,id_job,id_location)
 VALUES
@@ -105,7 +105,7 @@ VALUES
   ,1
   ,3
   ,1
-)
+);
 
 INSERT INTO customer (firstname,lastname,picture_profil,language,id_loggin,id_location)
 VALUES 
@@ -116,9 +116,9 @@ VALUES
   ,'Français'
   ,3
   ,2
-)
+);
 
-INSERT INTO favorite_job(id_job,id_customer) VALUES (1,1),(1,2),(1,3),(1,4)
+INSERT INTO favorite_job(id_job,id_customer) VALUES (1,1),(2,1),(3,1),(4,1);
 
 INSERT INTO experience(compagny,start_date,end_date,occupation,location,description,id_user_freelance)
 VALUES
@@ -126,8 +126,9 @@ VALUES
   'Foreach Academy'
   ,'2021-09-01'
   ,'2023-06-30'
-  ,"Concepteur d'application"
-  ,"Création d'une application de mise en relation entre client et nouveau freelance de l'IT"
+  ,'Concepteur d''application'
+  ,'Marcq en Baroeul'
+  ,'Création d''une application de mise en relation entre client et nouveau freelance de l''IT'
   ,2
 )
 ,
@@ -135,7 +136,63 @@ VALUES
   'Foreach Academy'
   ,'2021-09-01'
   ,'2023-06-30'
-  ,"Conceptrice d'application"
-  ,"Création d'une application de mise en relation entre client et nouveau freelance de l'IT"
+  ,'Concepteur d''application'
+  ,'Marcq en Baroeul'
+  ,'Création d''une application de mise en relation entre client et nouveau freelance de l''IT'
   ,1
-)
+),
+(
+  'Euro-Information Developpement'
+  ,'2021-10-01'
+  ,'2023-06-30'
+  ,'Apprentie Analyste Developpeuse'
+  ,'Verlinghem'
+  ,'Alternance au sein de l’équipe technologie automate bancaire et intégration dans l’équipe de développement projet cloud.L’objectif est de repenser les architectures monolithiques en micro service et de passer d’une source de données Mainframe vers un cloud privé.'
+  ,1
+);
+
+INSERT INTO graduation(title,school,location,description,start_date,end_date,id_user_freelance)
+VALUES
+(
+  'Titre professionnel Concepteur d''application'
+  ,'Foreach Academy'
+  ,'Marcq en Baroeul'
+  ,'Nomenclature du niveau de qualification : Niveau 6, formation réalisée en alternance'
+  ,'2021-09-01'
+  ,'2023-06-30'
+  ,1
+),
+(
+  'Titre professionnel Concepteur d''application'
+  ,'Foreach Academy'
+  ,'Marcq en Baroeul'
+  ,'Nomenclature du niveau de qualification : Niveau 6, formation réalisée en alternance'
+  ,'2021-09-01'
+  ,'2023-06-30'
+  ,2
+);
+
+INSERT INTO estimate(job_title,mission,from_when,duration,home_office,price,status,id_user_freelance,id_customer) 
+VALUES
+(
+  'Développeur full-stack'
+  ,'Création d''une application pour la gestion des marchés aux puces d''une mairie'
+  ,'2022-03-13'
+  ,'CDD'
+  ,'Oui'
+  ,300
+  ,'Envoyé'
+  ,2
+  ,1
+),
+(
+  'DevOps'
+  ,'Containerisation d''une application pour la gestion des marchés aux puces d''une mairie'
+  ,'2022-03-13'
+  ,'CDD'
+  ,'Oui'
+  ,300
+  ,'Envoyé'
+  ,1
+  ,1
+);
