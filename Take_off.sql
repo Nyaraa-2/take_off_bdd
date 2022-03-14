@@ -41,16 +41,16 @@ CREATE TABLE user_freelance (
   lastname character varying(50) NOT NULL,
   picture_profil character varying(500) NULL,
   about character varying(1500) NULL,
-	siren character varying(20) NULL,
-  rate decimal NULL,
+	siren character varying(50) NULL,
+  rate decimal NOT NULL,
   price integer NOT NULL,
   language character varying(20) NOT NULL,
   id_loggin integer NOT NULL,
   id_job integer NOT NULL,
   id_location integer NOT NULL,
   FOREIGN KEY (id_loggin) REFERENCES loggin ON DELETE CASCADE,
-  FOREIGN KEY (id_location) REFERENCES location ON DELETE CASCADE,
   FOREIGN KEY (id_job) REFERENCES job ON DELETE CASCADE
+  FOREIGN KEY (id_location) REFERENCES location ON DELETE CASCADE,
 );
 
 CREATE TABLE customer (
@@ -58,12 +58,13 @@ CREATE TABLE customer (
 	firstname character varying(50) NOT NULL,
   lastname character varying(50) NOT NULL,
   picture_profil character varying(500) NULL,
-  favorite_jobs character varying(1500) NULL,
   language character varying(20) NOT NULL,
   id_loggin integer NOT NULL,
   id_location integer NOT NULL,
+  id_favorite_job integer NOT NULL,
   FOREIGN KEY (id_loggin) REFERENCES loggin ON DELETE CASCADE,
   FOREIGN KEY (id_location) REFERENCES location ON DELETE CASCADE
+  FOREIGN KEY (id_favorite_job) REFERENCES favorite_job ON DELETE CASCADE
 );
 
 CREATE TABLE favorite_job (
