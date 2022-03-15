@@ -120,9 +120,9 @@ VALUES
 
 
 
-INSERT INTO favorite_job(id_job,id_customer) VALUES (1,1),(2,1),(3,1),(4,1);
+INSERT INTO favorite_job(id_job,id_account) VALUES (1,1),(2,1),(3,1),(4,1);
 
-INSERT INTO experience(compagny,start_date,end_date,occupation,location,description,id_user_freelance)
+INSERT INTO experience(compagny,start_date,end_date,occupation,location,description,id_account)
 VALUES
 (
   'Foreach Academy'
@@ -153,7 +153,7 @@ VALUES
   ,1
 );
 
-INSERT INTO graduation(title,school,location,description,start_date,end_date,id_user_freelance)
+INSERT INTO graduation(title,school,location,description,start_date,end_date,id_account)
 VALUES
 (
   'Titre professionnel Concepteur d''application'
@@ -178,7 +178,7 @@ INSERT INTO status(name)
 VALUES
 ('Envoyé'),('Accepté'),('En cours'),('Terminé')
 
-INSERT INTO estimate(job_title,mission,from_when,duration,home_office,price,id_status,id_user_freelance,id_customer) 
+INSERT INTO estimate(job_title,mission,from_when,duration,home_office,price,id_status,id_freelance,id_customer) 
 VALUES
 (
   'Développeur full-stack'
