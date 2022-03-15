@@ -58,9 +58,9 @@ CREATE TABLE account (
 CREATE TABLE favorite_job (
 	id serial PRIMARY KEY,
   id_job integer NOT NULL,
-	id_customer integer NOT NULL,
+	id_account integer NOT NULL,
   FOREIGN KEY (id_job) REFERENCES job ON DELETE CASCADE, 
-  FOREIGN KEY (id_customer) REFERENCES customer ON DELETE CASCADE 
+  FOREIGN KEY (id_account) REFERENCES account ON DELETE CASCADE 
 );
 
 CREATE TABLE experience (
@@ -71,8 +71,8 @@ CREATE TABLE experience (
   occupation character varying(50) NOT NULL,
 	location character varying(50) NOT NULL,
   description character varying(1500) NOT NULL,
-  id_user_freelance integer NOT NULL,
-  FOREIGN KEY (id_user_freelance) REFERENCES user_freelance ON DELETE CASCADE
+  id_account integer NOT NULL,
+  FOREIGN KEY (id_account) REFERENCES account ON DELETE CASCADE
 );
 
 CREATE TABLE graduation (
@@ -83,14 +83,14 @@ CREATE TABLE graduation (
   description character varying(1500) NOT NULL,
   start_date date NOT NULL,
   end_date date NOT NULL,
-  id_user_freelance integer NOT NULL,
-  FOREIGN KEY (id_user_freelance) REFERENCES user_freelance ON DELETE CASCADE
+  id_account integer NOT NULL,
+  FOREIGN KEY (id_account) REFERENCES account ON DELETE CASCADE
 );
 
 CREATE TABLE status (
   id serial PRIMARY KEY,
   name character varying(100) NOT NULL
-)
+);
 
 CREATE TABLE estimate (
 	id serial PRIMARY KEY,
@@ -101,10 +101,10 @@ CREATE TABLE estimate (
   home_office character varying(30) NOT NULL,
   price integer NOT NULL,
   id_status integer NOT NULL,
-  id_user_freelance integer NOT NULL,
+  id_freelance integer NOT NULL,
   id_customer integer NOT NULL,
   FOREIGN KEY (id_status) REFERENCES status ON DELETE CASCADE,
-  FOREIGN KEY (id_user_freelance) REFERENCES user_freelance ON DELETE CASCADE,
-  FOREIGN KEY (id_customer) REFERENCES customer ON DELETE CASCADE
+  FOREIGN KEY (id_freelance) REFERENCES account ON DELETE CASCADE,
+  FOREIGN KEY (id_customer) REFERENCES account ON DELETE CASCADE
 );
 
