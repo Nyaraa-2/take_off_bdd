@@ -1,6 +1,6 @@
 CREATE TABLE loggin (
 	id serial PRIMARY KEY,
-	type_account character varying(50) NOT NULL,
+	type_account integer NOT NULL,
 	email character varying(150) NOT NULL,
 	password character varying(50) NOT NULL
 );
@@ -23,6 +23,7 @@ CREATE TABLE job_expertise (
   FOREIGN KEY (id_expertise) REFERENCES expertise ON DELETE CASCADE 
 );
 
+
 CREATE TABLE expertise_category (
 	id serial PRIMARY KEY,
 	name character varying(100) NOT NULL,
@@ -35,35 +36,24 @@ CREATE TABLE location (
 	name character varying(100) NOT NULL
 );
 
-CREATE TABLE user_freelance (
+CREATE TABLE account (
 	id serial PRIMARY KEY,
 	firstname character varying(50) NOT NULL,
   lastname character varying(50) NOT NULL,
   picture_profil character varying(500) NULL,
   about character varying(1500) NULL,
 	siren character varying(50) NULL,
-  rate decimal NOT NULL,
-  price integer NOT NULL,
+  rate decimal NULL,
+  price integer NULL,
   language character varying(20) NOT NULL,
   id_loggin integer NOT NULL,
-  id_job integer NOT NULL,
+  id_job integer NULL,
   id_location integer NOT NULL,
   FOREIGN KEY (id_loggin) REFERENCES loggin ON DELETE CASCADE,
   FOREIGN KEY (id_job) REFERENCES job ON DELETE CASCADE,
   FOREIGN KEY (id_location) REFERENCES location ON DELETE CASCADE
 );
 
-CREATE TABLE customer (
-	id serial PRIMARY KEY,
-	firstname character varying(50) NOT NULL,
-  lastname character varying(50) NOT NULL,
-  picture_profil character varying(500) NULL,
-  language character varying(20) NOT NULL,
-  id_loggin integer NOT NULL,
-  id_location integer NOT NULL,
-  FOREIGN KEY (id_loggin) REFERENCES loggin ON DELETE CASCADE,
-  FOREIGN KEY (id_location) REFERENCES location ON DELETE CASCADE
-);
 
 CREATE TABLE favorite_job (
 	id serial PRIMARY KEY,
@@ -97,6 +87,11 @@ CREATE TABLE graduation (
   FOREIGN KEY (id_user_freelance) REFERENCES user_freelance ON DELETE CASCADE
 );
 
+CREATE TABLE status (
+  id serial PRIMARY KEY,
+  name character varying(100) NOT NULL
+)
+
 CREATE TABLE estimate (
 	id serial PRIMARY KEY,
   job_title character varying(50) NOT NULL,
@@ -105,10 +100,11 @@ CREATE TABLE estimate (
   duration character varying(15) NOT NULL,
   home_office character varying(30) NOT NULL,
   price integer NOT NULL,
-  status character varying(20) NOT NULL,
+  id_status integer NOT NULL,
   id_user_freelance integer NOT NULL,
-  FOREIGN KEY (id_user_freelance) REFERENCES user_freelance ON DELETE CASCADE,
   id_customer integer NOT NULL,
+  FOREIGN KEY (id_status) REFERENCES status ON DELETE CASCADE,
+  FOREIGN KEY (id_user_freelance) REFERENCES user_freelance ON DELETE CASCADE,
   FOREIGN KEY (id_customer) REFERENCES customer ON DELETE CASCADE
 );
 

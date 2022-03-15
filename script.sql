@@ -1,9 +1,3 @@
-INSERT INTO loggin (type_account,email,password) 
-VALUES 
-('freelance','marina.vandenbosch@gmail.com','foreach')
-,('freelance','enzo.averlant@gmail.com','foreach')
-,('customer','adrien.bogaz@gmail.com','foreach');
-
 INSERT INTO job (name) 
 VALUES 
 ('Developpeur full-stack')
@@ -77,7 +71,14 @@ VALUES
 
 INSERT INTO location(name) VALUES('Lille'),('Paris'),('Marseille'),('Lyon');
 
-INSERT INTO user_freelance (firstname,lastname,picture_profil,about,siren,rate,price,language,id_loggin,id_job,id_location)
+INSERT INTO loggin (type_account,email,password) 
+VALUES 
+(1,'marina.vandenbosch@gmail.com','foreach')
+,(1,'enzo.averlant@gmail.com','foreach')
+,(2,'adrien.bogaz@gmail.com','foreach');
+
+
+INSERT INTO account (firstname,lastname,picture_profil,about,siren,rate,price,language,id_loggin,id_job,id_location)
 VALUES
 (
   'Enzo'
@@ -106,9 +107,8 @@ VALUES
   ,3
   ,1
 );
-
-INSERT INTO customer (firstname,lastname,picture_profil,language,id_loggin,id_location)
-VALUES 
+INSERT INTO account (firstname,lastname,picture_profil,language,id_loggin,id_location)
+VALUES
 (
   'Adrien'
   ,'Bogaz'
@@ -117,6 +117,8 @@ VALUES
   ,3
   ,2
 );
+
+
 
 INSERT INTO favorite_job(id_job,id_customer) VALUES (1,1),(2,1),(3,1),(4,1);
 
@@ -172,7 +174,11 @@ VALUES
   ,2
 );
 
-INSERT INTO estimate(job_title,mission,from_when,duration,home_office,price,status,id_user_freelance,id_customer) 
+INSERT INTO status(name)
+VALUES
+('Envoyé'),('Accepté'),('En cours'),('Terminé')
+
+INSERT INTO estimate(job_title,mission,from_when,duration,home_office,price,id_status,id_user_freelance,id_customer) 
 VALUES
 (
   'Développeur full-stack'
@@ -196,3 +202,4 @@ VALUES
   ,1
   ,1
 );
+
