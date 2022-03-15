@@ -176,7 +176,7 @@ VALUES
 
 INSERT INTO status(name)
 VALUES
-('Envoyé'),('Accepté'),('En cours'),('Terminé')
+('Envoyé'),('Accepté'),('En cours'),('Terminé');
 
 INSERT INTO estimate(job_title,mission,from_when,duration,home_office,price,id_status,id_freelance,id_customer) 
 VALUES
