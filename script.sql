@@ -118,6 +118,7 @@ VALUES
   ,2
 );
 
+INSERT INTO skill(id_account,id_expertise,id_expertise_category) VALUES (1,1,1),(1,1,2)
 
 
 INSERT INTO favorite_job(id_job,id_account) VALUES (1,1),(2,1),(3,1),(4,1);
