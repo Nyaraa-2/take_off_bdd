@@ -108,3 +108,12 @@ CREATE TABLE estimate (
   FOREIGN KEY (id_customer) REFERENCES account ON DELETE CASCADE
 );
 
+CREATE TABLE skill (
+	id serial PRIMARY KEY,
+  id_account integer NOT NULL,
+	id_expertise integer NOT NULL,
+  id_expertise_category integer NOT NULL,
+  FOREIGN KEY (id_account) REFERENCES account ON DELETE CASCADE, 
+  FOREIGN KEY (id_expertise) REFERENCES expertise ON DELETE CASCADE 
+  FOREIGN KEY (id_expertise_category) REFERENCES expertise_category ON DELETE CASCADE
+);
